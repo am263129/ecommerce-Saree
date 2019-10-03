@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     private Integer EMPTYEMAIL = 3;
     private Integer EMPTYPASS = 4;
     private Integer VALID = 0;
-    private Button login, register;
+    private Button login, register, skip;
     private String TAG = "Login";
     private Handler mHandler;
     private Integer mInterval = 5000;
@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         lock_screen = (ScrollView)findViewById(R.id.lock_screen);
         login = findViewById(R.id.login);
         register = findViewById(R.id.register);
+        skip = (Button)findViewById(R.id.skip_now);
         loading = (ProgressBar)findViewById(R.id.loading);
         ProgressBar loadingProgressBar = findViewById(R.id.loading);
         login.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +90,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         mHandler = new Handler();
         startRepeatingTask();
 

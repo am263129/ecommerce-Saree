@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "409365001550",
-    "firebase_url": "https://saree-578ed.firebaseio.com",
-    "project_id": "saree-578ed",
-    "storage_bucket": "saree-578ed.appspot.com"
+    "project_number": "264276466994",
+    "firebase_url": "https://saree-43de3.firebaseio.com",
+    "project_id": "saree-43de3",
+    "storage_bucket": "saree-43de3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:409365001550:android:c6251bfa4128a65df0da1f",
+        "mobilesdk_app_id": "1:264276466994:android:f70fbc3ff2c8243ebc4b2b",
         "android_client_info": {
           "package_name": "social.media.saree"
         }
       },
       "oauth_client": [
         {
-          "client_id": "409365001550-ks7ck1d1g53047r2h2c2p72ksn37doq0.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "social.media.saree",
-            "certificate_hash": "7de57a3503dbaa3261aa4f034ad9869b61611e2e"
-          }
-        },
-        {
-          "client_id": "409365001550-v502k162oc92cblsff9r1heh26q3fum2.apps.googleusercontent.com",
+          "client_id": "264276466994-7df5m88eag5ss7naf8gu0hfv4qn7739b.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCu--A17UfrwlGfxRCLHVSL3xl19elfVew"
+          "current_key": "AIzaSyA5JDX1moZojQKBImfI9_x4Zb3WOlfv9Tk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "409365001550-v502k162oc92cblsff9r1heh26q3fum2.apps.googleusercontent.com",
+              "client_id": "264276466994-7df5m88eag5ss7naf8gu0hfv4qn7739b.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

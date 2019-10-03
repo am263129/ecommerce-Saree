@@ -18,7 +18,7 @@
             android:orientation="vertical"
             android:padding="30dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
@@ -29,45 +29,14 @@
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin">
-
-                <Button
-                    android:id="@+id/login"
-                    android:layout_width="0dp"
-                    android:layout_height="42dp"
-                    android:layout_gravity="start"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="64dp"
-                    android:background="@drawable/selector_btn_next"
-                    android:text="Log In"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/password"
-                    app:layout_constraintVertical_bias="0.994" />
-
-                <Button
-                    android:id="@+id/register"
-                    android:layout_width="0dp"
-                    android:layout_height="42dp"
-                    android:layout_gravity="start"
-                    android:background="@drawable/selector_btn_next"
-                    android:text="Register"
-                    android:textColor="@color/white"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.505"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/login" />
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/username"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="96dp"
-
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:selectAllOnFocus="true"
@@ -79,7 +48,7 @@
 
                 <EditText
                     android:id="@+id/password"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
 
@@ -94,27 +63,64 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/username" />
 
-                <ProgressBar
-                    android:id="@+id/loading"
-                    android:layout_width="0dp"
-                    android:layout_height="75dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="64dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginBottom="64dp"
-                    android:visibility="gone"
+                <Button
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/selector_btn_next"
+                    android:text="Log In"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/password"
-                    app:layout_constraintStart_toStartOf="@+id/password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/password"
-                    app:layout_constraintVertical_bias="0.3" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintVertical_bias="0.994" />
+
+                <Button
+                    android:id="@+id/register"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_gravity="start"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/selector_btn_next"
+                    android:text="Register"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.505"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/login" />
+
+                <Button
+                    android:id="@+id/skip_now"
+                    android:layout_height="42dp"
+                    android:layout_gravity="start"
+                    android:background="@drawable/selector_btn_next"
+                    android:text="Skip Now"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.505"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="match_parent" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:orientation="horizontal"></LinearLayout>
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ProgressBar
+                    android:id="@+id/loading"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:visibility="visible" />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

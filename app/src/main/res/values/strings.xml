@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Saree</string>
     <string name="female">Female</string>
-    <string name="male" >Male</string>
+    <string name="male">Male</string>
     <string name="gender">Gender</string>
     <string name="password">Password</string>
     <string name="add_photo">Select Photo</string>
