@@ -2,7 +2,7 @@ package social.media.saree.util;
 
 import java.util.ArrayList;
 
-import social.media.saree.member.Member;
+import social.media.saree.Member.Member;
 import social.media.saree.saree.saree;
 
 public class Global {

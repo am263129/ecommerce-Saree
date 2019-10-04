@@ -38,6 +38,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="8"
                     android:background="@drawable/border"
+                    android:minHeight="50dp"
                     android:numStars="5" />
 
                 <TextView

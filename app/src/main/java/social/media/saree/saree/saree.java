@@ -35,6 +35,7 @@ public class saree {
         this.saree_rating = saree_Rating;
         this.saree_Description = saree_Description;
         this.saree_style = saree_style;
+        this.saree_photo = saree_photo;
     }
 
     public String getSaree_Color() {

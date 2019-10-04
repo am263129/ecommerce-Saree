@@ -26,10 +26,10 @@ import java.util.HashMap;
 
 import javax.microedition.khronos.opengles.GL;
 
-import social.media.saree.member.Member;
+import social.media.saree.Member.Member;
+import social.media.saree.product.product_view_all;
 import social.media.saree.product.upload_product;
 import social.media.saree.saree.saree;
-import social.media.saree.saree.saree_view;
 import social.media.saree.util.Global;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         Order_manager = (LinearLayout)findViewById(R.id.order_manager);
         adminPanel = (LinearLayout)findViewById(R.id.admin_panel);
 
-        final Intent intent = new Intent(MainActivity.this, saree_view.class);
+        final Intent intent = new Intent(MainActivity.this, product_view_all.class);
         Fashion_saree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -227,7 +227,13 @@ public class MainActivity extends AppCompatActivity {
                             String saree_Occations = userData.get("Occations").toString();
                             String saree_Color = userData.get("Color").toString();
                             String saree_Rating = userData.get("Rating").toString();
-                            String saree_Description = userData.get("Description").toString();
+                            String saree_Description = "";
+                            try {
+                                saree_Description = userData.get("Description").toString();
+                            }catch (Exception e){
+                                Log.e(TAG,e.toString());
+                            }
+
                             String saree_Style = userData.get("Style").toString();
                             String base64photo = "";
                             try {
