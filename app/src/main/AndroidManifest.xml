@@ -9,19 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".saree.saree_view"></activity>
         <activity android:name=".product.product_view_all" />
         <activity android:name=".product.product_view" />
         <activity android:name=".product.upload_product" />
         <activity android:name=".regiser.register" />
-        <activity android:name=".login.LoginActivity">
+        <activity android:name=".login.LoginActivity"
+            android:theme="@style/AppTheme.NoActionAndStatusBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

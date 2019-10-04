@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -25,17 +28,20 @@ public class product_view_all extends AppCompatActivity {
         ListView saree_list = (ListView) findViewById(R.id.saree_list);
 
         ArrayList<saree> array_all_sarees = new ArrayList<saree>();
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         String style = intent.getStringExtra("Style");
         switch (style){
             case "Fashion":
                 array_all_sarees = Global.array_Fashion_sarees;
+                saree_style.setText("Fashion Saree");
                 break;
             case "Best Seller":
                 array_all_sarees = Global.array_BestSeller_sarees;
+                saree_style.setText("Best Sellers");
                 break;
             case "New":
                 array_all_sarees = Global.array_New_sarees;
+                saree_style.setText("New Saree");
                 break;
             default:
                 array_all_sarees = Global.array_all_sarees;
@@ -43,5 +49,15 @@ public class product_view_all extends AppCompatActivity {
         }
         sareeAdapter_list adapter = new sareeAdapter_list(this,R.layout.item_saree_list,array_all_sarees);
         saree_list.setAdapter(adapter);
+        saree_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(product_view_all.this,"working0",Toast.LENGTH_LONG).show();
+                Intent detail = new Intent(product_view_all.this, product_view.class);
+                detail.putExtra("index", i);
+                detail.putExtra("Style",intent.getStringExtra("Style"));
+                startActivity(intent);
+            }
+        });
     }
 }

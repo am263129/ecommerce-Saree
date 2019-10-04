@@ -7,9 +7,13 @@
     android:background="@drawable/main_back"
     tools:context=".MainActivity">
 
+
+
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,6 +25,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="20dp">
+
 
                 <ImageView
                     android:id="@+id/imageView7"

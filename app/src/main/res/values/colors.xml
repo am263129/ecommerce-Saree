@@ -54,6 +54,8 @@
     <color name="silver">#BDC3C7</color>
     <color name="asbestos">#7f8c8d</color>
 
+    <color name="toolbar">#fbfed9</color>
+
     <color name="grey_5">#f2f2f2</color>
     <color name="grey_60">#666666</color>
     <color name="grey_90">#263238</color>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/miCart"
+        android:icon="@drawable/icon_cart"
+        app:showAsAction="ifRoom"
+        android:title="Cart">
+    </item>
+    <item
+        android:id="@+id/miProfile"
+        android:icon="@drawable/icon_login"
+        app:showAsAction="ifRoom|withText"
+        android:title="Profile">
+    </item>
+</menu>

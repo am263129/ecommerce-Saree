@@ -2,11 +2,14 @@ package social.media.saree;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -87,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         myself = this;
+
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        // Make sure the toolbar exists in the activity and is not null
+
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -267,6 +274,40 @@ public class MainActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         });
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.toolbar_manu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case R.id.miCart:
+                Intent shareIntent = new Intent (Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String shareBody = "your body here";
+                String shareSub = "Your subject here";
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                shareIntent.putExtra (Intent.EXTRA_TEXT, shareBody);
+                startActivity (Intent.createChooser (shareIntent,"Share App Locker"));
+                return true;
+
+            case R.id.miProfile:
+                // Some other methods
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
     public static MainActivity getInstance(){

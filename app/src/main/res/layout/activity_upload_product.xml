@@ -59,7 +59,7 @@
                     <EditText
                         android:id="@+id/saree_name"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:inputType="textPostalAddress|textEmailAddress"
                         android:singleLine="false"
                         android:textColor="@color/textcolor" />
@@ -69,7 +69,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border"
                     android:orientation="vertical">
@@ -85,7 +85,7 @@
                     <EditText
                         android:id="@+id/saree_label"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:hint=""
                         android:inputType="none"
@@ -148,7 +148,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border"
                     android:orientation="vertical">
@@ -164,7 +164,7 @@
                     <EditText
                         android:id="@+id/saree_material"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:inputType="textPostalAddress|textEmailAddress"
                         android:textColor="@color/textcolor" />
 
@@ -173,7 +173,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border"
                     android:orientation="vertical">
@@ -189,7 +189,7 @@
                     <EditText
                         android:id="@+id/saree_length"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:inputType="textPostalAddress|textEmailAddress"
                         android:textColor="@color/textcolor" />
 
@@ -199,7 +199,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border"
                     android:orientation="vertical">
@@ -215,7 +215,7 @@
                     <EditText
                         android:id="@+id/saree_occasions"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:hint=""
                         android:inputType="none"
@@ -226,7 +226,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border"
                     android:orientation="vertical">
@@ -242,7 +242,7 @@
                     <EditText
                         android:id="@+id/saree_color"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:hint=""
                         android:inputType="none"
@@ -252,10 +252,9 @@
                 </LinearLayout>
 
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border"
                     android:orientation="vertical">
@@ -268,14 +267,17 @@
                         android:textColor="@color/textcolor"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/saree_more_info"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:gravity="center_vertical"
-                        android:hint=""
-                        android:inputType="textPostalAddress|textEmailAddress"
-                        android:textColor="@color/textcolor" />
+                        android:layout_height="wrap_content"
+                        android:saveEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/saree_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/textcolor" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
                 </LinearLayout>

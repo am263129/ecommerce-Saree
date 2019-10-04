@@ -2,11 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:descendantFocusability="blocksDescendants">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:clickable="true"
         android:orientation="horizontal">
 
         <ImageView
@@ -34,23 +38,23 @@
 
                 <RatingBar
                     android:id="@+id/item_saree_rating"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="8"
-                    android:background="@drawable/border"
-                    android:minHeight="50dp"
-                    android:numStars="5" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:numStars="5"
+                    android:stepSize="0.5"
+                    android:isIndicator="true"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"/>
 
                 <TextView
-                    android:id="@+id/item_saree_price"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="5"
                     android:textSize="24sp" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/item_saree_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"

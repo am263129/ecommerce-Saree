@@ -55,7 +55,7 @@ public class sareeAdapter_list extends ArrayAdapter <saree> implements Filterabl
         saree_name.setText(Name);
         saree_price.setText(price);
         Integer in_rating = Integer.parseInt(rating);
-        saree_rating.setNumStars(in_rating);
+        saree_rating.setProgress(in_rating);
 
 
         String base64photo = array_all_saree.get(position).getSaree_photo();
