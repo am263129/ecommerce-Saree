@@ -6,8 +6,8 @@ import social.media.saree.Member.Member;
 import social.media.saree.saree.saree;
 
 public class Global {
-    public static String current_user_email;
-    public static String current_user_name;
+    public static String current_user_email ;
+    public static String current_user_name = "";
     public static String current_user_photo;
     public static Integer current_user_index;
     public static boolean is_admin = false;

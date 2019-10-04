@@ -30,8 +30,10 @@ import java.util.HashMap;
 import javax.microedition.khronos.opengles.GL;
 
 import social.media.saree.Member.Member;
+import social.media.saree.login.LoginActivity;
 import social.media.saree.product.product_view_all;
 import social.media.saree.product.upload_product;
+import social.media.saree.regiser.register;
 import social.media.saree.saree.saree;
 import social.media.saree.util.Global;
 
@@ -302,6 +304,18 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.miProfile:
                 // Some other methods
+                Intent intent;
+                if (!Global.current_user_name.equals("")) {
+                    intent = new Intent(MainActivity.this, register.class);
+                    intent.putExtra("mode","edit");
+                    startActivity(intent);
+                }
+                else {
+                    intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+
                 return true;
 
             default:

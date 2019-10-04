@@ -36,7 +36,7 @@
                         android:layout_width="300dp"
                         android:layout_height="400dp"
                         android:layout_gravity="center_horizontal"
-                        app:srcCompat="@drawable/back_register" />
+                        app:srcCompat="@drawable/saree_k150" />
                 </LinearLayout>
 
 

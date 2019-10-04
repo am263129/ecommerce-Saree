@@ -261,8 +261,19 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/selector_btn_next"
-                    android:text="Add User"
+                    android:text="Register"
                     android:textColor="@color/textcolor" />
+
+                <Button
+                    android:id="@+id/update_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/selector_btn_next"
+                    android:text="Update"
+                    android:textColor="@color/textcolor"
+                    android:visibility="gone" />
 
 
             </LinearLayout>

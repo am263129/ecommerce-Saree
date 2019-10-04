@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -33,16 +34,21 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+
 import social.media.saree.MainActivity;
+import social.media.saree.Member.Member;
 import social.media.saree.R;
+import social.media.saree.util.Global;
 
 public class register extends AppCompatActivity {
     EditText username_edt, official_email_edt, password_edt, personal_email_edt, official_num_edt, personal_num_edt, designation_edt;
     ImageView profile_pic;
-    Button register_btn;
+    Button register_btn, update_btn;
     RadioGroup genderrb;
     RadioButton male, female;
     File upload_file = null;
@@ -78,6 +84,7 @@ public class register extends AppCompatActivity {
         genderrb = (RadioGroup) findViewById(R.id.genderrb);
         profile_pic = (ImageView) findViewById(R.id.profile_pic);
         register_btn = (Button) findViewById(R.id.register_btn);
+        update_btn = (Button) findViewById(R.id.update_btn);
         male = (RadioButton) findViewById(R.id.malerb);
         female = (RadioButton) findViewById(R.id.femalerb);
 
@@ -91,27 +98,40 @@ public class register extends AppCompatActivity {
             }
         });
 
+        Intent intent = getIntent();
+        try {
+            if (intent.getStringExtra("mode").equals("edit")) {
+                register_btn.setVisibility(View.GONE);
+                update_btn.setVisibility(View.VISIBLE);
+                Member me = Global.array_all_members.get(Global.current_user_index);
+                username_edt.setText(me.getName());
+                official_email_edt.setText(me.getOfficial_email());
+                personal_email_edt.setText(me.getEmail());
+                official_num_edt.setText(me.getOfficial_phone());
+                personal_num_edt.setText(me.getPersonal_phone());
+                designation_edt.setText(me.getDesignation());
+                String base64photo = me.getPhoto();
+                String imageDataBytes = base64photo.substring(base64photo.indexOf(",") + 1);
+                InputStream stream = new ByteArrayInputStream(Base64.decode(imageDataBytes.getBytes(), Base64.DEFAULT));
+                Bitmap bitmap = BitmapFactory.decodeStream(stream);
+                profile_pic.setImageBitmap(bitmap);
+            }
+        }
+        catch (Exception e){
+            Log.e(TAG, e.toString());
+        }
 
 
         register_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (checkemail() & check_username() & check_password() & checkemail_personal()) {
-
-                    int selectedId = genderrb.getCheckedRadioButtonId();
-                    RadioButton radiogender = (RadioButton) findViewById(selectedId);
-
-                    String selected_gender = radiogender.getText().toString();
-                    String username = username_edt.getText().toString();
-                    String email = official_email_edt.getText().toString();
-                    String password = password_edt.getText().toString();
-
-
-                    RegisterAPI(username, email, password, selected_gender, upload_file);
-
-                }
-
-
+                profile_setting(false);
+            }
+        });
+        update_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                profile_setting(true);
             }
         });
 
@@ -119,6 +139,24 @@ public class register extends AppCompatActivity {
 
 
     }
+
+    private void profile_setting(boolean flag) {
+        if (checkemail() & check_username() & check_password() & checkemail_personal()) {
+
+            int selectedId = genderrb.getCheckedRadioButtonId();
+            RadioButton radiogender = (RadioButton) findViewById(selectedId);
+
+            String selected_gender = radiogender.getText().toString();
+            String username = username_edt.getText().toString();
+            String email = official_email_edt.getText().toString();
+            String password = password_edt.getText().toString();
+
+
+            RegisterAPI(username, email, password, selected_gender, upload_file,flag);
+
+        }
+    }
+
     @Override
     protected void onStart() {
 
@@ -168,7 +206,7 @@ public class register extends AppCompatActivity {
         }
     }
 
-    public void RegisterAPI(String username, final String email, final String password, String gender, File file1) {
+    public void RegisterAPI(String username, final String email, final String password, String gender, File file1, final boolean flag) {
         userEmail = personal_email_edt.getText().toString();
         userPass = password;
         FirebaseApp.initializeApp(this);
@@ -199,7 +237,8 @@ public class register extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
                 Log.d(TAG, "Value is:" + value);
-                singUp();
+                if (flag);
+                    singUp();
             }
 
             @Override
