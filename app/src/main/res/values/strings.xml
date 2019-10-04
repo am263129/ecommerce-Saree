@@ -9,4 +9,15 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in_short">Sign In</string>
+
+    <string-array name="saree_style">
+        <item>Fashion</item>
+        <item>Best Seller</item>
+        <item>New</item>
+        <item>Recommended</item>
+        <item>Hit</item>
+        <item>High Quality</item>
+        <item>Good Price</item>
+    </string-array>
+
 </resources>

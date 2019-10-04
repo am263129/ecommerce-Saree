@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import social.media.saree.R;
+
 public class product_view_all extends AppCompatActivity {
 
     @Override

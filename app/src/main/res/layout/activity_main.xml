@@ -4,25 +4,253 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_back"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_upload_product"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload_product"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="83dp"
-        tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:background="@drawable/poster_1"
+                    app:srcCompat="@drawable/frame_a" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/damion"
+                    android:gravity="center_horizontal"
+                    android:text="Best Sarees Here!"
+                    android:textSize="30sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/image_area_a"
+                        android:layout_width="0dp"
+                        android:layout_height="300dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/select_best_seller" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/fashion_sarees"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/back_fashion"
+                            android:orientation="horizontal"
+                            android:padding="30dp">
+
+                            <com.makeramen.roundedimageview.RoundedImageView
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:layout_gravity="center_vertical"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ico_fashion"
+                                app:riv_corner_radius="70dp"
+                                app:riv_mutate_background="false"
+                                app:riv_oval="false" />
+
+                            <TextView
+                                android:id="@+id/textView6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Fashion"
+                                android:textColor="@color/white"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/best_seller"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/back_best_seller"
+                            android:orientation="horizontal"
+                            android:padding="30dp">
+
+                            <com.makeramen.roundedimageview.RoundedImageView
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:layout_gravity="center_vertical"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ico_best_seller"
+                                app:riv_corner_radius="70dp"
+                                app:riv_mutate_background="false"
+                                app:riv_oval="false" />
+
+                            <TextView
+                                android:id="@+id/textView9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Best Seller"
+                                android:textColor="@color/white"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/new_saree"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/back_new"
+                            android:orientation="horizontal"
+                            android:padding="30dp">
+
+                            <com.makeramen.roundedimageview.RoundedImageView
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:layout_gravity="center_vertical"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ico_new"
+                                app:riv_corner_radius="70dp"
+                                app:riv_mutate_background="false"
+                                app:riv_oval="false" />
+
+                            <TextView
+                                android:id="@+id/textView8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="New Saree"
+                                android:textColor="@color/white"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/admin_panel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/image_area_b"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/select_order" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/btn_upload_product"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/back_uplosf"
+                            android:orientation="horizontal"
+                            android:padding="30dp">
+
+                            <TextView
+                                android:id="@+id/upload_product"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Upload"
+                                android:textColor="@color/white"
+                                android:textSize="18sp" />
+
+                            <com.makeramen.roundedimageview.RoundedImageView
+                                android:id="@+id/upload_new_product"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:layout_gravity="center_vertical"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ico_upload"
+                                app:riv_corner_radius="70dp"
+                                app:riv_mutate_background="false"
+                                app:riv_oval="false" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/order_manager"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/back_orders"
+                            android:orientation="horizontal"
+                            android:padding="30dp">
+
+                            <TextView
+                                android:id="@+id/view_orders"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Orders"
+                                android:textColor="@color/white"
+                                android:textSize="18sp" />
+
+                            <com.makeramen.roundedimageview.RoundedImageView
+                                android:id="@+id/view_all_orders"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:layout_gravity="center_vertical"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ico_order"
+                                app:riv_corner_radius="70dp"
+                                app:riv_mutate_background="false"
+                                app:riv_oval="false" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

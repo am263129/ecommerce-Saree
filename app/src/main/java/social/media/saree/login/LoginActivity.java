@@ -98,8 +98,8 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
-        mHandler = new Handler();
-        startRepeatingTask();
+//        mHandler = new Handler();
+//        startRepeatingTask();
 
     }
 
@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                             Global.current_user_email = user.getEmail();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
-                            stopRepeatingTask();
+//                            stopRepeatingTask();
                             finish();
 
                         } else {
@@ -178,23 +178,23 @@ public class LoginActivity extends AppCompatActivity {
         return VALID;
     }
 
-    private void startRepeatingTask() {
-        mStatusChecker.run();
-    }
-    public void stopRepeatingTask() {
-        mHandler.removeCallbacks(mStatusChecker);
-    }
-    Runnable mStatusChecker = new Runnable() {
-        @Override
-        public void run() {
-
-            if (image_index > 6)
-                image_index = 0;
-            lock_screen.setBackgroundResource(R.drawable.lockscreen + image_index);
-            image_index ++;
-
-            mHandler.postDelayed(mStatusChecker, mInterval);
-        }
-    };
+//    private void startRepeatingTask() {
+//        mStatusChecker.run();
+//    }
+//    public void stopRepeatingTask() {
+//        mHandler.removeCallbacks(mStatusChecker);
+//    }
+//    Runnable mStatusChecker = new Runnable() {
+//        @Override
+//        public void run() {
+//
+//            if (image_index > 6)
+//                image_index = 0;
+//            lock_screen.setBackgroundResource(R.drawable.lockscreen + image_index);
+//            image_index ++;
+//
+//            mHandler.postDelayed(mStatusChecker, mInterval);
+//        }
+//    };
 
 }

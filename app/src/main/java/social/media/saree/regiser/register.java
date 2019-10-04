@@ -209,19 +209,26 @@ public class register extends AppCompatActivity {
         });
     }
     private void singUp(){
-        mAuth.createUserWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    Log.e(TAG,"Successful");
-                    Toast.makeText(MainActivity.getInstance(),"New user Added Successfully!", Toast.LENGTH_LONG).show();
-                    finish();
-                }else{
-                    Toast.makeText(MainActivity.getInstance(),"New user Adding Failed!", Toast.LENGTH_LONG).show();
-                    finish();
+        try {
+            mAuth.createUserWithEmailAndPassword(userEmail, userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Log.e(TAG, "Successful");
+                        Toast.makeText(register.this, "New user Added Successfully!", Toast.LENGTH_LONG).show();
+                        Intent intnet = new Intent(register.this, MainActivity.class);
+                        startActivity(intnet);
+                        finish();
+                    } else {
+                        Toast.makeText(register.this, "New user Adding Failed!", Toast.LENGTH_LONG).show();
+                        finish();
+                    }
                 }
-            }
-        });
+            });
+        }
+        catch (Exception e){
+            Log.e(TAG,e.toString());
+        }
     }
 /*
     private void upload_image() {
