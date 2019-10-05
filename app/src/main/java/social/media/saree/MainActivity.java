@@ -30,6 +30,7 @@ import java.util.HashMap;
 import javax.microedition.khronos.opengles.GL;
 
 import social.media.saree.Member.Member;
+import social.media.saree.QR.QRCreator;
 import social.media.saree.login.LoginActivity;
 import social.media.saree.product.product_view_all;
 import social.media.saree.product.upload_product;
@@ -293,13 +294,9 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.miCart:
-                Intent shareIntent = new Intent (Intent.ACTION_SEND);
-                shareIntent.setType("text/plain");
-                String shareBody = "your body here";
-                String shareSub = "Your subject here";
-                shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
-                shareIntent.putExtra (Intent.EXTRA_TEXT, shareBody);
-                startActivity (Intent.createChooser (shareIntent,"Share App Locker"));
+                Intent qrintent = new Intent(MainActivity.this, QRCreator.class);
+                startActivity(qrintent);
+
                 return true;
 
             case R.id.miProfile:

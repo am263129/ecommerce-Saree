@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import social.media.interfaces.ItemClickListener;
 import social.media.saree.R;
 import social.media.saree.saree.saree;
 import social.media.saree.saree.sareeAdapter_list;
@@ -49,7 +50,16 @@ public class product_view_all extends AppCompatActivity {
         }
         sareeAdapter_list adapter = new sareeAdapter_list(this,R.layout.item_saree_list,array_all_sarees);
         saree_list.setAdapter(adapter);
-        saree_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        adapter.setItemListener(new ItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                Intent detail = new Intent(product_view_all.this, product_view.class);
+                detail.putExtra("index", position);
+                detail.putExtra("Style",intent.getStringExtra("Style"));
+                startActivity(detail);
+            }
+        });
+        /*saree_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(product_view_all.this,"working0",Toast.LENGTH_LONG).show();
@@ -58,6 +68,6 @@ public class product_view_all extends AppCompatActivity {
                 detail.putExtra("Style",intent.getStringExtra("Style"));
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }

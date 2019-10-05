@@ -1,4 +1,4 @@
-package social.media.saree.saree;
+package social.media.saree.order;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,20 +14,19 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.makeramen.roundedimageview.RoundedImageView;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 
 import social.media.interfaces.ItemClickListener;
 import social.media.saree.R;
+import social.media.saree.saree.saree;
 
 
-public class sareeAdapter_list extends ArrayAdapter <saree> implements Filterable {
+public class orderAdapter_list extends ArrayAdapter <order> implements Filterable {
 
 
-    ArrayList<saree> array_all_saree = new ArrayList<>();
+    ArrayList<order> array_order = new ArrayList<order>();
 
     public void setItemListener(ItemClickListener itemListener) {
         this.itemListener = itemListener;
@@ -35,11 +34,11 @@ public class sareeAdapter_list extends ArrayAdapter <saree> implements Filterabl
 
     ItemClickListener itemListener;
 
-    saree saree;
+    order order;
     CheckBox hire;
-    public sareeAdapter_list(Context context, int textViewResourceId, ArrayList<saree> objects) {
+    public orderAdapter_list(Context context, int textViewResourceId, ArrayList<order> objects) {
         super(context, textViewResourceId, objects);
-        array_all_saree = objects;
+        array_order = objects;
     }
 
     @Override
@@ -52,21 +51,14 @@ public class sareeAdapter_list extends ArrayAdapter <saree> implements Filterabl
 
         View v = convertView;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.item_saree_list, null);
+        v = inflater.inflate(R.layout.item_order_list, null);
         TextView saree_name = (TextView) v.findViewById(R.id.item_saree_name);
         ImageView saree_photo = (ImageView)v.findViewById(R.id.item_saree_photo);
         RatingBar saree_rating = (RatingBar)v.findViewById(R.id.item_saree_rating);
         TextView saree_price = (TextView)v.findViewById(R.id.item_saree_price);
-        String Name = array_all_saree.get(position).getSaree_Name();
-        String price = array_all_saree.get(position).getSaree_Price();
-        String rating = array_all_saree.get(position).getSaree_rating();
-        saree_name.setText(Name);
-        saree_price.setText(price);
-        Integer in_rating = Integer.parseInt(rating);
-        saree_rating.setProgress(in_rating);
 
 
-        String base64photo = array_all_saree.get(position).getSaree_photo();
+        String base64photo = array_order.get(position).getClient_Address();
         if (base64photo.equals("")) {
 
             saree_photo.setImageResource(R.drawable.saree_dummy);

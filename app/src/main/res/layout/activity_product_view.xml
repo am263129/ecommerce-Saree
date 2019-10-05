@@ -56,7 +56,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:clickable="false"
-                            android:numStars="5" />
+                            android:numStars="5"
+                            android:stepSize="0.5"
+                            android:isIndicator="true"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            />
 
                     </LinearLayout>
 
