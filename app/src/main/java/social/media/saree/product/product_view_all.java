@@ -32,17 +32,17 @@ public class product_view_all extends AppCompatActivity {
         final Intent intent = getIntent();
         String style = intent.getStringExtra("Style");
         switch (style){
-            case "Fashion":
-                array_all_sarees = Global.array_Fashion_sarees;
-                saree_style.setText("Fashion Saree");
+            case "shaandar":
+                array_all_sarees = Global.array_shaandar_sarees;
+                saree_style.setText("shaandar Saree");
                 break;
-            case "Best Seller":
+            case "khoobsurat":
                 array_all_sarees = Global.array_BestSeller_sarees;
-                saree_style.setText("Best Sellers");
+                saree_style.setText("khoobsurats");
                 break;
             case "New":
                 array_all_sarees = Global.array_New_sarees;
-                saree_style.setText("New Saree");
+                saree_style.setText("dhamakedar");
                 break;
             default:
                 array_all_sarees = Global.array_all_sarees;

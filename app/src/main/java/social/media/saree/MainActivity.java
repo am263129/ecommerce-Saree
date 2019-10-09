@@ -1,18 +1,17 @@
 package social.media.saree;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -27,8 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.microedition.khronos.opengles.GL;
-
 import social.media.saree.Member.Member;
 import social.media.saree.QR.QRCreator;
 import social.media.saree.login.LoginActivity;
@@ -38,14 +35,16 @@ import social.media.saree.regiser.register;
 import social.media.saree.saree.saree;
 import social.media.saree.util.Global;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static MainActivity myself;
-    LinearLayout Fashion_saree, BestSeller_saree, New_Saree, Upload_product, Order_manager, adminPanel;
-    ImageView Image_area_a, Image_area_b;
+    LinearLayout shaandar_saree, BestSeller_saree, New_Saree, Upload_product, Order_manager, adminPanel;
+    ImageView Image_area_a, Image_area_b, group_best_of_georgette, group_new_design;
     String TAG = "MainActivity";
     private ArrayList<Member> array_all_members = new ArrayList<Member>();
     private ArrayList<saree> array_all_sarees = new ArrayList<saree>();
+    Intent intent;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,38 +52,19 @@ public class MainActivity extends AppCompatActivity {
 
         Image_area_a = (ImageView)findViewById(R.id.image_area_a);
         Image_area_b = (ImageView)findViewById(R.id.image_area_b);
-        Fashion_saree = (LinearLayout)findViewById(R.id.fashion_sarees);
-        BestSeller_saree = (LinearLayout)findViewById(R.id.best_seller);
-        New_Saree = (LinearLayout)findViewById(R.id.new_saree);
+        shaandar_saree = (LinearLayout)findViewById(R.id.shaandar_sarees);
+        BestSeller_saree = (LinearLayout)findViewById(R.id.khoobsurat);
+        New_Saree = (LinearLayout)findViewById(R.id.dhamakedar);
         Upload_product = (LinearLayout)findViewById(R.id.btn_upload_product);
         Order_manager = (LinearLayout)findViewById(R.id.order_manager);
         adminPanel = (LinearLayout)findViewById(R.id.admin_panel);
+        group_best_of_georgette = (ImageView)findViewById(R.id.poster_1);
+        group_new_design = (ImageView)findViewById(R.id.poster_2);
+        group_new_design.setClipToOutline(true);
+        group_best_of_georgette.setClipToOutline(true);
 
-        final Intent intent = new Intent(MainActivity.this, product_view_all.class);
-        Fashion_saree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Image_area_a.setBackgroundResource(R.drawable.select_fashion);
-                intent.putExtra("Style","Fashion");
-                startActivity(intent);
-            }
-        });
-        BestSeller_saree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Image_area_a.setBackgroundResource(R.drawable.select_best_seller);
-                intent.putExtra("Style","Best Seller");
-                startActivity(intent);
-            }
-        });
-        New_Saree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Image_area_a.setBackgroundResource(R.drawable.select_new);
-                intent.putExtra("Style","New");
-                startActivity(intent);
-            }
-        });
+        intent = new Intent(MainActivity.this, product_view_all.class);
+
         Upload_product.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -215,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Global.array_all_sarees.clear();
-                Global.array_Fashion_sarees.clear();
+                Global.array_shaandar_sarees.clear();
                 Global.array_BestSeller_sarees.clear();
                 Global.array_New_sarees.clear();
 
@@ -254,9 +234,9 @@ public class MainActivity extends AppCompatActivity {
                             }
                             saree new_saree = new saree(saree_Id, saree_Name, saree_Label, saree_Price, saree_Material, saree_Length, saree_Occations, saree_Color, saree_Rating, saree_Description, saree_Style,base64photo, null, null, null ) ;
                             array_all_sarees.add(new_saree);
-                            if (saree_Style.equals("Fashion"))
-                                Global.array_Fashion_sarees.add(new_saree);
-                            else if (saree_Style.equals("Best Seller"))
+                            if (saree_Style.equals("shaandar"))
+                                Global.array_shaandar_sarees.add(new_saree);
+                            else if (saree_Style.equals("khoobsurat"))
                                 Global.array_BestSeller_sarees.add(new_saree);
                             else if (saree_Style.equals("New"))
                                 Global.array_New_sarees.add(new_saree);
@@ -324,5 +304,31 @@ public class MainActivity extends AppCompatActivity {
     public static MainActivity getInstance(){
 
         return myself;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.poster_1:
+                break;
+            case R.id.poster_2:
+                break;
+            case R.id.shaandar_sarees:
+                Image_area_a.setBackgroundResource(R.drawable.select_shaandar);
+                intent.putExtra("Style","shaandar");
+                startActivity(intent);
+                break;
+            case R.id.khoobsurat:
+                Image_area_a.setBackgroundResource(R.drawable.select_best_seller);
+                intent.putExtra("Style","khoobsurat");
+                startActivity(intent);
+                break;
+            case R.id.dhamakedar:
+                Image_area_a.setBackgroundResource(R.drawable.select_new);
+                intent.putExtra("Style","New");
+                startActivity(intent);
+                break;
+
+        }
     }
 }

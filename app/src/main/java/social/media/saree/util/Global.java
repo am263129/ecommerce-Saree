@@ -14,7 +14,7 @@ public class Global {
 
     public static ArrayList<Member> array_all_members = new ArrayList<Member>();
     public static ArrayList<saree> array_all_sarees = new ArrayList<saree>();
-    public static ArrayList<saree> array_Fashion_sarees = new ArrayList<saree>();
+    public static ArrayList<saree> array_shaandar_sarees = new ArrayList<saree>();
     public static ArrayList<saree> array_BestSeller_sarees = new ArrayList<saree>();
     public static ArrayList<saree> array_New_sarees = new ArrayList<saree>();
 }

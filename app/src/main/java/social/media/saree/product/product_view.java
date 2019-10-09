@@ -42,10 +42,10 @@ public class product_view extends AppCompatActivity {
         ArrayList<saree> arrayList = new ArrayList<saree>();
 
         switch (style){
-            case "Fashion":
-                arrayList = Global.array_Fashion_sarees;
+            case "shaandar":
+                arrayList = Global.array_shaandar_sarees;
                 break;
-            case "Best Seller":
+            case "khoobsurat":
                 arrayList = Global.array_BestSeller_sarees;
                 break;
             case "New":

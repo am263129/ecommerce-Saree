@@ -11,8 +11,8 @@
     <string name="action_sign_in_short">Sign In</string>
 
     <string-array name="saree_style">
-        <item>Fashion</item>
-        <item>Best Seller</item>
+        <item>shaandar</item>
+        <item>khoobsurat</item>
         <item>New</item>
         <item>Recommended</item>
         <item>Hit</item>
