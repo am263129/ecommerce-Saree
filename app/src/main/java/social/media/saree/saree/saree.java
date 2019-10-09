@@ -16,6 +16,8 @@ public class saree {
     public String saree_Description;
     public String saree_style;
     public String saree_photo;
+    public String saree_fabric;
+    public String saree_group;
 
     public saree(){
 
