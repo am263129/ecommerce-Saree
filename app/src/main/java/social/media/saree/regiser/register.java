@@ -276,7 +276,7 @@ public class register extends AppCompatActivity {
         StorageReference storageRef = storage.getReferenceFromUrl("gs://sc-app-1ce6f.appspot.com/");
         StorageReference mountainImagesRef = storageRef.child("images/" + filePath.getLastPathSegment() + ".jpg");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, baos);
+        bitmap_a.compress(Bitmap.CompressFormat.JPEG, 20, baos);
         byte[] data = baos.toByteArray();
         UploadTask uploadTask = mountainImagesRef.putBytes(data);
         uploadTask.addOnFailureListener(new OnFailureListener() {
@@ -295,9 +295,9 @@ public class register extends AppCompatActivity {
 
     }
 
-    private void ImageUpload( final Bitmap bitmap) {
+    private void ImageUpload( final Bitmap bitmap_a) {
 
-       Bitmap bitmapImage = Bitmap.createScaledBitmap(bitmap, 300, 300, true);
+       Bitmap bitmapImage = Bitmap.createScaledBitmap(bitmap_a, 300, 300, true);
         ByteArrayOutputStream baosImage = new ByteArrayOutputStream();
         bitmapImage.compress(Bitmap.CompressFormat.JPEG, 75, baosImage);
         byte[] byteImage = baosImage.toByteArray();
@@ -380,8 +380,8 @@ public class register extends AppCompatActivity {
 
         InputStream stream = new ByteArrayInputStream(Base64.decode(imageDataBytes.getBytes(), Base64.DEFAULT));
 
-        Bitmap bitmap = BitmapFactory.decodeStream(stream);
+        Bitmap bitmap_a = BitmapFactory.decodeStream(stream);
 
-        imageView.setImageBitmap(bitmap);
+        imageView.setImageBitmap(bitmap_a);
     }*/
 }

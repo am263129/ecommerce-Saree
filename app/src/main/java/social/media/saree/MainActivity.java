@@ -37,7 +37,7 @@ import social.media.saree.util.Global;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static MainActivity myself;
-    LinearLayout shaandar_saree, BestSeller_saree, New_Saree, Upload_product, Order_manager, adminPanel;
+    LinearLayout shaandar_saree, khoobsurat_saree, dhamakedar_Saree, Upload_product, Order_manager, adminPanel;
     ImageView Image_area_a, Image_area_b, group_best_of_georgette, group_new_design;
     String TAG = "MainActivity";
     private ArrayList<Member> array_all_members = new ArrayList<Member>();
@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Image_area_a = (ImageView)findViewById(R.id.image_area_a);
         Image_area_b = (ImageView)findViewById(R.id.image_area_b);
         shaandar_saree = (LinearLayout)findViewById(R.id.shaandar_sarees);
-        BestSeller_saree = (LinearLayout)findViewById(R.id.khoobsurat);
-        New_Saree = (LinearLayout)findViewById(R.id.dhamakedar);
+        khoobsurat_saree = (LinearLayout)findViewById(R.id.khoobsurat);
+        dhamakedar_Saree = (LinearLayout)findViewById(R.id.dhamakedar);
         Upload_product = (LinearLayout)findViewById(R.id.btn_upload_product);
         Order_manager = (LinearLayout)findViewById(R.id.order_manager);
         adminPanel = (LinearLayout)findViewById(R.id.admin_panel);
@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         group_new_design = (ImageView)findViewById(R.id.poster_2);
         group_new_design.setClipToOutline(true);
         group_best_of_georgette.setClipToOutline(true);
+        shaandar_saree.setOnClickListener(this);
+        khoobsurat_saree.setOnClickListener(this);
+        dhamakedar_Saree.setOnClickListener(this);
 
         intent = new Intent(MainActivity.this, product_view_all.class);
 

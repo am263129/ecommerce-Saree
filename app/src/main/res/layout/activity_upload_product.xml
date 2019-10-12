@@ -26,17 +26,38 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/border"
-                    android:orientation="vertical">
-
+                    android:layout_height="300dp"
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/image_saree"
-                        android:layout_width="300dp"
-                        android:layout_height="400dp"
-                        android:layout_gravity="center_horizontal"
-                        app:srcCompat="@drawable/saree_k150" />
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/back_login" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/image_saree_b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/fabric_dhamarkedar" />
+
+                        <ImageView
+                            android:id="@+id/image_saree_c"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/fabric_georgette" />
+                    </LinearLayout>
                 </LinearLayout>
 
 
@@ -107,7 +128,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/ts"
-                        android:text="Price"
+                        android:text="Price(₹)"
                         android:textColor="@color/textcolor"
                         android:textStyle="bold" />
 
@@ -115,6 +136,103 @@
                         android:id="@+id/saree_price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="numberSigned"
+                        android:textColor="@color/textcolor" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/ts"
+                        android:text="Old Price(₹)"
+                        android:textColor="@color/textcolor"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/saree_old_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned"
+                        android:textColor="@color/textcolor" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/price_pecentage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="0% off"
+                        android:textColor="@color/orange1" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/ts"
+                        android:text="Shipping Price(₹)"
+                        android:textColor="@color/textcolor"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/saree_shipping_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned"
+                        android:textColor="@color/textcolor" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/ts"
+                        android:text="Shipping Old Price(₹)"
+                        android:textColor="@color/textcolor"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/saree_shipping_old_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned"
                         android:textColor="@color/textcolor" />
 
 
@@ -148,7 +266,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="90dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border"
                     android:orientation="vertical">
@@ -157,16 +275,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/ts"
-                        android:text="Saree Material"
+                        android:text="Saree Fabric"
                         android:textColor="@color/textcolor"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/saree_material"
+                    <Spinner
+                        android:id="@+id/saree_fabric"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:inputType="textPostalAddress|textEmailAddress"
-                        android:textColor="@color/textcolor" />
+                        android:textColor="@color/textcolor"
+                        android:entries="@array/saree_fabric"/>
 
 
                 </LinearLayout>
@@ -251,7 +370,6 @@
 
                 </LinearLayout>
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -263,7 +381,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/ts"
-                        android:text="More Info"
+                        android:text="Extra Info"
                         android:textColor="@color/textcolor"
                         android:textStyle="bold" />
 
@@ -273,14 +391,15 @@
                         android:saveEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/saree_description"
+                            android:id="@+id/saree_extra_info"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/textcolor" />
+                            android:textColor="@color/pumpkin" />
                     </com.google.android.material.textfield.TextInputLayout>
 
 
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"

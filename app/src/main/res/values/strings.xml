@@ -20,4 +20,19 @@
         <item>Good Price</item>
     </string-array>
 
+    <string-array name="saree_fabric">
+        <item>SILK</item>
+        <item>GEORGERRE</item>
+        <item>SANA</item>
+        <item>KANJEEVARAM</item>
+        <item>ART SILK</item>
+        <item>COTTON SILK</item>
+        <item>CHIFFON</item>
+        <item>BANARASI</item>
+        <item>JAPAN SATIN</item>
+        <item>COTTON</item>
+        <item>NET</item>
+        <item>BHAGALPURI</item>
+    </string-array>
+
 </resources>
