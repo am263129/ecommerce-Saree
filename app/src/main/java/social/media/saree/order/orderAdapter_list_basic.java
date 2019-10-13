@@ -20,25 +20,20 @@ import java.util.ArrayList;
 
 import social.media.interfaces.ItemClickListener;
 import social.media.saree.R;
-import social.media.saree.saree.saree;
 
 
-public class orderAdapter_list extends ArrayAdapter <order> implements Filterable {
+public class orderAdapter_list_basic extends ArrayAdapter <cart_item> implements Filterable {
 
 
-    ArrayList<order> array_order = new ArrayList<order>();
+    ArrayList<cart_item> array_cart_item = new ArrayList<cart_item>();
 
-    public void setItemListener(ItemClickListener itemListener) {
-        this.itemListener = itemListener;
-    }
 
-    ItemClickListener itemListener;
 
-    order order;
+    cart_item cart_item;
     CheckBox hire;
-    public orderAdapter_list(Context context, int textViewResourceId, ArrayList<order> objects) {
+    public orderAdapter_list_basic(Context context, int textViewResourceId, ArrayList<cart_item> objects) {
         super(context, textViewResourceId, objects);
-        array_order = objects;
+        array_cart_item = objects;
     }
 
     @Override
@@ -51,13 +46,12 @@ public class orderAdapter_list extends ArrayAdapter <order> implements Filterabl
 
         View v = convertView;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.item_order_list, null);
-        TextView saree_name = (TextView) v.findViewById(R.id.item_saree_name);
-        ImageView saree_photo = (ImageView)v.findViewById(R.id.item_saree_photo);
-        RatingBar saree_rating = (RatingBar)v.findViewById(R.id.item_saree_rating);
-        TextView saree_price = (TextView)v.findViewById(R.id.item_saree_price);
+        v = inflater.inflate(R.layout.item_order_list_basic, null);
+        TextView item_name = (TextView) v.findViewById(R.id.item_name);
+        TextView item_amount = (TextView)v.findViewById(R.id.item_amount);
 
-
+        item_name.setText(array_cart_item.get(position).getProduct_name());
+        item_amount.setText(array_cart_item.get(position).getProduct_amount());
 
         return v;
     }

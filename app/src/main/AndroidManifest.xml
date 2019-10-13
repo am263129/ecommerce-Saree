@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QR.QRCreator"></activity>
+        <activity android:name=".order.make_Order"></activity>
+        <activity android:name=".QR.QRCreator" />
         <activity android:name=".product.product_view_all" />
         <activity android:name=".product.product_view" />
         <activity android:name=".product.upload_product" />
@@ -29,8 +30,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

@@ -4,11 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,6 +17,8 @@ import social.media.saree.util.Global;
 
 public class product_view_all extends AppCompatActivity {
 
+
+    ArrayList<saree> array_all_sarees;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,34 +27,32 @@ public class product_view_all extends AppCompatActivity {
         TextView saree_style = (TextView)findViewById(R.id.saree_style);
         ListView saree_list = (ListView) findViewById(R.id.saree_list);
 
-        ArrayList<saree> array_all_sarees = new ArrayList<saree>();
+        array_all_sarees = new ArrayList<saree>();
         final Intent intent = getIntent();
         String style = intent.getStringExtra("Style");
-        switch (style){
-            case "shaandar":
-                array_all_sarees = Global.array_shaandar_sarees;
-                saree_style.setText("shaandar Saree");
-                break;
-            case "khoobsurat":
-                array_all_sarees = Global.array_BestSeller_sarees;
-                saree_style.setText("khoobsurats");
-                break;
-            case "New":
-                array_all_sarees = Global.array_New_sarees;
-                saree_style.setText("dhamakedar");
-                break;
-            default:
-                array_all_sarees = Global.array_all_sarees;
-                break;
+        String fabric = intent.getStringExtra("Fabric");
+        for (int i = 0; i < Global.array_all_sarees.size(); i++){
+            if(style != null)
+                if (Global.array_all_sarees.get(i).getSaree_style().equals(style))
+                    array_all_sarees.add(Global.array_all_sarees.get(i));
+            if (fabric != null)
+                if (Global.array_all_sarees.get(i).getSaree_Fabric().equals(fabric))
+                    array_all_sarees.add(Global.array_all_sarees.get(i));
         }
+
+        if (style == null)
+            saree_style.setText(fabric);
+        else
+            saree_style.setText(style);
+
+
         sareeAdapter_list adapter = new sareeAdapter_list(this,R.layout.item_saree_list,array_all_sarees);
         saree_list.setAdapter(adapter);
         adapter.setItemListener(new ItemClickListener() {
             @Override
             public void onClick(int position) {
                 Intent detail = new Intent(product_view_all.this, product_view.class);
-                detail.putExtra("index", position);
-                detail.putExtra("Style",intent.getStringExtra("Style"));
+                Global.selected_saree = array_all_sarees.get(position);
                 startActivity(detail);
             }
         });

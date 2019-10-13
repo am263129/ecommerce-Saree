@@ -20,82 +20,109 @@
             app:srcCompat="@drawable/order_item" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:orientation="vertical">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="2dp">
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/label_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:padding="2dp"
-                    android:text="Name" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
-                <TextView
-                    android:id="@+id/item_order_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:padding="2dp"
-                    android:text="Autumn Saree k149" />
+                    <TextView
+                        android:id="@+id/label_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:padding="2dp"
+                        android:singleLine="true"
+                        android:text="Name" />
+
+                    <TextView
+                        android:id="@+id/item_order_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:padding="2dp"
+                        android:singleLine="true"
+                        android:text="Autumn Saree k149" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:id="@+id/label_amount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:padding="2dp"
+                        android:singleLine="true"
+                        android:text="Amount" />
+
+                    <TextView
+                        android:id="@+id/item_order_amount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:padding="2dp"
+                        android:singleLine="true"
+                        android:text="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:id="@+id/label_total_price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:padding="2dp"
+                        android:text="TOTAL"
+                        android:textColor="@color/carrot" />
+
+                    <TextView
+                        android:id="@+id/item_order_totalprice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:padding="2dp"
+                        android:text="$ 34"
+                        android:textColor="@color/carrot" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="2dp">
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/label_amount"
-                    android:layout_width="0dp"
+                <ImageView
+                    android:id="@+id/btn_remove"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:padding="2dp"
-                    android:text="Amount" />
-
-                <TextView
-                    android:id="@+id/item_order_amount"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:padding="2dp"
-                    android:text="1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="2dp">
-
-                <TextView
-                    android:id="@+id/label_total_price"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:padding="2dp"
-                    android:text="TOTAL"
-                    android:textColor="@color/carrot" />
-
-                <TextView
-                    android:id="@+id/item_order_totalprice"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:padding="2dp"
-                    android:text="$ 34"
-                    android:textColor="@color/carrot" />
+                    app:srcCompat="@android:drawable/ic_delete" />
             </LinearLayout>
 
         </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

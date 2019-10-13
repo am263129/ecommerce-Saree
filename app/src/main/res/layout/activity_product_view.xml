@@ -115,7 +115,7 @@
                         android:orientation="horizontal">
 
                         <Button
-                            android:id="@+id/button"
+                            android:id="@+id/btn_add_to_cart"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
@@ -124,7 +124,7 @@
                             android:text="Add to Cart" />
 
                         <Button
-                            android:id="@+id/button2"
+                            android:id="@+id/btn_make_order"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"

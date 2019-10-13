@@ -28,6 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.ByteArrayOutputStream;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -192,11 +194,19 @@ public class upload_product extends AppCompatActivity {
 
     private void cal_off() {
         if(!saree_Price.getText().toString().equals("") && !saree_oldPrice.getText().toString().equals("")){
-            String pecentage = String.valueOf((Integer.parseInt(saree_oldPrice.getText().toString()) - Integer.parseInt(saree_Price.getText().toString())) / Integer.parseInt(saree_oldPrice.getText().toString()) * 100);
+            Float price = Float.parseFloat(saree_Price.getText().toString());
+            Float OldPrice = Float.parseFloat(saree_oldPrice.getText().toString());
+            DecimalFormat df = new DecimalFormat("0.00");
+            df.setRoundingMode(RoundingMode.UP);
+            Float pecentage = ((( OldPrice - price ) / Float.parseFloat(saree_oldPrice.getText().toString())) * 100);
             if(Integer.parseInt(saree_Price.getText().toString()) < Integer.parseInt(saree_oldPrice.getText().toString()))
-                priceoff_pecentage.setText("(" + pecentage + "%)"+"Off");
+                priceoff_pecentage.setText("(" +  df.format(pecentage) + "%)"+"Off");
             else
-                priceoff_pecentage.setText("(" + pecentage + "%)"+"Up");
+                priceoff_pecentage.setText("(" + df.format(pecentage).substring(1) + "%)"+"Up");
+        }
+        if (saree_Price.getText().toString().equals("") || saree_oldPrice.getText().toString().equals(""))
+        {
+            priceoff_pecentage.setText("");
         }
     }
 

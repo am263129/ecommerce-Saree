@@ -11,6 +11,7 @@ public class order {
     public String Product_Id;
     public String Product_Name;
     public String Product_Price;
+    public String product_amount;
 
     public order(){
 
@@ -25,7 +26,8 @@ public class order {
                  String order_status,
                  String product_Id,
                  String product_Name,
-                 String product_Price){
+                 String product_Price,
+                 String product_Amount){
         this.Client_Address = client_Address;
         this.Client_Email = client_Email;
         this.Client_Name = client_Name;
@@ -36,6 +38,7 @@ public class order {
         this.Product_Id =  product_Id;
         this.Product_Name = product_Name;
         this.Product_Price = product_Price;
+        this.product_amount = product_Amount;
     }
 
     public String getClient_Address() {
@@ -78,4 +81,7 @@ public class order {
         return Product_Price;
     }
 
+    public String getProduct_amount() {
+        return product_amount;
+    }
 }

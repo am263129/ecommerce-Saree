@@ -46,7 +46,7 @@ import social.media.saree.R;
 import social.media.saree.util.Global;
 
 public class register extends AppCompatActivity {
-    EditText username_edt, official_email_edt, password_edt, personal_email_edt, official_num_edt, personal_num_edt, designation_edt;
+    EditText username_edt, official_email_edt, password_edt, personal_email_edt, official_num_edt, personal_num_edt, designation_edt, user_address, user_location;
     ImageView profile_pic;
     Button register_btn, update_btn;
     RadioGroup genderrb;
@@ -80,7 +80,8 @@ public class register extends AppCompatActivity {
         official_num_edt = (EditText) findViewById(R.id.official_number_edt);
         personal_num_edt = (EditText) findViewById(R.id.personal_number_edt);
         designation_edt = (EditText) findViewById(R.id.designation_edt);
-
+        user_address = (EditText) findViewById(R.id.user_address);
+        user_location = (EditText) findViewById(R.id.user_location);
         genderrb = (RadioGroup) findViewById(R.id.genderrb);
         profile_pic = (ImageView) findViewById(R.id.profile_pic);
         register_btn = (Button) findViewById(R.id.register_btn);
@@ -226,6 +227,10 @@ public class register extends AppCompatActivity {
         myRef.setValue(personal_num_edt.getText().toString());
         myRef = database.getReference(id+"/Designation");
         myRef.setValue(designation_edt.getText().toString());
+        myRef = database.getReference(id+"/Address");
+        myRef.setValue(user_address.getText().toString());
+        myRef = database.getReference(id+"/Location");
+        myRef.setValue(user_location.getText().toString());
         myRef = database.getReference(id+"/Gender");
         myRef.setValue(gender);
         if (bitmap!=null) {

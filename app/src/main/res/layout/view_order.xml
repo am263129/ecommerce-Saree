@@ -61,28 +61,30 @@
                             android:padding="10dp">
 
                             <TextView
-                                android:id="@+id/order_to_name"
+                                android:id="@+id/order_from_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Naomi Igarashi" />
+                                android:text="Faizan Ansari" />
 
                             <TextView
-                                android:id="@+id/order_to_email"
+                                android:id="@+id/order_from_email"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="poseidon@gmail.com" />
+                                android:text="support@gmail.com" />
 
                             <TextView
-                                android:id="@+id/order_to_address"
+                                android:id="@+id/order_from_address"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Isabel street de curha 34 th " />
+                                android:text="World Square NSW 2002 " />
 
                             <TextView
-                                android:id="@+id/order_to_location"
+                                android:id="@+id/order_from_location"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Russia" />
+                                android:text="India" />
+
+
                         </LinearLayout>
 
                     </LinearLayout>
@@ -125,28 +127,30 @@
                             android:padding="10dp">
 
                             <TextView
-                                android:id="@+id/order_from_name"
+                                android:id="@+id/order_to_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Faizan Ansari" />
+                                android:text="Naomi Igarashi" />
 
                             <TextView
-                                android:id="@+id/order_from_email"
+                                android:id="@+id/order_to_email"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="support@gmail.com" />
+                                android:text="poseidon@gmail.com" />
 
                             <TextView
-                                android:id="@+id/order_from_address"
+                                android:id="@+id/order_to_address"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="World Square NSW 2002 " />
+                                android:text="Isabel street de curha 34 th " />
 
                             <TextView
-                                android:id="@+id/order_from_location"
+                                android:id="@+id/order_to_location"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="India" />
+                                android:text="Russia" />
+
+
                         </LinearLayout>
 
                     </LinearLayout>
@@ -198,7 +202,7 @@
                                 android:id="@+id/order_currency"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="USD" />
+                                android:text="INR" />
 
                         </LinearLayout>
 
@@ -265,7 +269,7 @@
                     <ListView
                         android:id="@+id/order_list"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -289,7 +293,7 @@
                             android:textSize="24sp" />
 
                         <TextView
-                            android:id="@+id/textView24"
+                            android:id="@+id/order_total_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"

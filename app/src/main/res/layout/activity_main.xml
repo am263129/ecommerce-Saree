@@ -25,7 +25,7 @@
 
 
                 <ImageView
-                    android:id="@+id/poster_1"
+                    android:id="@+id/style_best_of_georgette"
                     android:layout_width="wrap_content"
                     android:layout_height="200dp"
                     android:background="@drawable/radius"
@@ -126,7 +126,7 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/poster_2"
+                    android:id="@+id/style_new_design"
                     android:layout_width="wrap_content"
                     android:layout_height="200dp"
                     android:layout_marginTop="10dp"
@@ -264,6 +264,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_silk"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
 
@@ -296,6 +297,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_georgtte"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
 
@@ -328,6 +330,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_sana"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
                     </LinearLayout>
@@ -367,6 +370,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_kanjeevaram"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
 
@@ -399,6 +403,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_artsilk"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
 
@@ -431,6 +436,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_cottonsilk"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
                     </LinearLayout>
@@ -470,6 +476,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_chiffon"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
 
@@ -502,6 +509,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_banarasi"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
 
@@ -534,6 +542,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_japansatin"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
                     </LinearLayout>
@@ -573,6 +582,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_cotton"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
 
@@ -601,11 +611,11 @@
                                 android:text="NET" />
 
                             <TextView
-                                android:id="@+id/new_amount_net"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_net"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
 
@@ -638,6 +648,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="288 New"
+                                android:id="@+id/amount_saree_bhagalpuri"
                                 android:textColor="@color/colorAccent" />
                         </LinearLayout>
                     </LinearLayout>

@@ -7,6 +7,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -16,6 +18,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 import social.media.saree.R;
+import social.media.saree.order.make_Order;
 import social.media.saree.saree.saree;
 import social.media.saree.util.Global;
 
@@ -36,34 +39,33 @@ public class product_view extends AppCompatActivity {
         TextView saree_description = (TextView)findViewById(R.id.detail_saree_description);
         ImageView saree_photo = (ImageView)findViewById(R.id.detail_saree_photo);
 
+        Button add_to_cart = (Button)findViewById(R.id.btn_add_to_cart);
+        final Button make_order = (Button)findViewById(R.id.btn_make_order);
+
+        add_to_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        make_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(product_view.this, make_Order.class);
+                startActivity(intent);
+            }
+        });
+
         Intent intent = getIntent();
-        Integer index = intent.getIntExtra("index",0);
-        String style = intent.getStringExtra("Style");
-        ArrayList<saree> arrayList = new ArrayList<saree>();
+        saree selected_saree = Global.selected_saree;
 
-        switch (style){
-            case "shaandar":
-                arrayList = Global.array_shaandar_sarees;
-                break;
-            case "khoobsurat":
-                arrayList = Global.array_BestSeller_sarees;
-                break;
-            case "New":
-                arrayList = Global.array_New_sarees;
-                break;
-            default:
-                arrayList = Global.array_all_sarees;
-                break;
-        }
 
-        saree_name.setText(arrayList.get(index).getSaree_Name());
-        saree_description.setText(arrayList.get(index).getSaree_Description());
-        saree_price.setText(arrayList.get(index).getSaree_Price());
-        saree_label.setText(arrayList.get(index).getSaree_Label());
-        saree_length.setText(arrayList.get(index).getSaree_Length());
-        saree_material.setText(arrayList.get(index).getSaree_Material());
-        saree_rating.setProgress(Integer.parseInt(arrayList.get(index).getSaree_rating()));
-        String base64photo = arrayList.get(index).getSaree_photo();
+        saree_name.setText(selected_saree.getSaree_Name());
+        saree_price.setText(selected_saree.getSaree_Price());
+        saree_label.setText(selected_saree.getSaree_Label());
+        saree_length.setText(selected_saree.getSaree_Length());
+        saree_rating.setProgress(Integer.parseInt(selected_saree.getSaree_rating()));
+        String base64photo = selected_saree.getSaree_photo_a();
         String imageDataBytes = base64photo.substring(base64photo.indexOf(",") + 1);
         InputStream stream = new ByteArrayInputStream(Base64.decode(imageDataBytes.getBytes(), Base64.DEFAULT));
         Bitmap bitmap = BitmapFactory.decodeStream(stream);

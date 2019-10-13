@@ -11,13 +11,11 @@
     <string name="action_sign_in_short">Sign In</string>
 
     <string-array name="saree_style">
-        <item>shaandar</item>
-        <item>khoobsurat</item>
-        <item>New</item>
-        <item>Recommended</item>
-        <item>Hit</item>
-        <item>High Quality</item>
-        <item>Good Price</item>
+        <item>SHAANDAR</item>
+        <item>KHOOBSURAT</item>
+        <item>DHAMAKEDAR</item>
+        <item>NEW DESIGN</item>
+        <item>BEST GEORGETTE</item>
     </string-array>
 
     <string-array name="saree_fabric">

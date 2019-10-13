@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
@@ -36,13 +37,77 @@ import social.media.saree.saree.saree;
 import social.media.saree.util.Global;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    String NAME = "Name";
+    String LABEL = "Label";
+    String PRICE = "Price";
+    String OLDPRICE = "Old Price";
+    String SHIPPINGPRICE = "Shipping Price";
+    String OLDSHIPPINGPRICE = "Old Shipping Price";
+    String EXTRAINFO = "Extra InFo";
+    String FABRIC = "Fabric";
+    String LENGTH = "Length";
+    String OCCATION = "Occations";
+    String COLOR = "Color";
+    String ID = "Id";
+    String STYLE = "Style";
+    String RATING = "Rating";
+    String PHOTO_A = "Photo_a";
+    String PHOTO_B = "Photo_b";
+    String PHOTO_C = "Photo_c";
+
+    final String SILK = "SILK";
+    final String GEORGERRE = "GEORGERRE";
+    final String SANA = "SANA";
+    final String KANJEEVARAM = "KANJEEVARAM";
+    final String ARTSILK = "ART SILK";
+    final String COTTONSILK = "COTTON SILK";
+    final String CHIFFON= "CHIFFON";
+    final String BANARASI = "BANARASI";
+    final String JAPANSATIN = "JAPAN SATIN";
+    final String COTTON = "COTTON";
+    final String NET = "NET";
+    final String BHAGALPURI = "BHAGALPURI";
+
+    Integer amount_SILK = 0;
+    Integer amount_GEORGETTE = 0;
+    Integer amount_SANA = 0;
+    Integer amount_KANJEEVARAM = 0;
+    Integer amount_ARTSILK = 0;
+    Integer amount_COTTONSILK = 0;
+    Integer amount_CHIFFON = 0;
+    Integer amount_BANARASI = 0;
+    Integer amount_JAPANSATIN = 0;
+    Integer amount_COTTON = 0;
+    Integer amount_NET = 0;
+    Integer amount_BHAGALPURI = 0;
+
+
+
     public static MainActivity myself;
     LinearLayout shaandar_saree, khoobsurat_saree, dhamakedar_Saree, Upload_product, Order_manager, adminPanel;
-    ImageView Image_area_a, Image_area_b, group_best_of_georgette, group_new_design;
+    LinearLayout saree_silk, saree_sana, saree_georgtte, saree_kanjeevaram, saree_artsilk, saree_cottonsilk, saree_chiffon, saree_banarasi, saree_japansatin, saree_cotton, saree_net, saree_bhagalpuri;
+    ImageView Image_area_a, Image_area_b, style_best_of_georgette, style_new_design;
+    TextView
+            amount_saree_silk,
+            amount_saree_sana,
+            amount_saree_georgtte,
+            amount_saree_kanjeevaram,
+            amount_saree_artsilk,
+            amount_saree_cottonsilk,
+            amount_saree_chiffon,
+            amount_saree_banarasi,
+            amount_saree_japansatin,
+            amount_saree_cotton,
+            amount_saree_net,
+            amount_saree_bhagalpuri ;
     String TAG = "MainActivity";
     private ArrayList<Member> array_all_members = new ArrayList<Member>();
     private ArrayList<saree> array_all_sarees = new ArrayList<saree>();
     Intent intent;
+
+
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -58,23 +123,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Upload_product = (LinearLayout)findViewById(R.id.btn_upload_product);
         Order_manager = (LinearLayout)findViewById(R.id.order_manager);
         adminPanel = (LinearLayout)findViewById(R.id.admin_panel);
-        group_best_of_georgette = (ImageView)findViewById(R.id.poster_1);
-        group_new_design = (ImageView)findViewById(R.id.poster_2);
-        group_new_design.setClipToOutline(true);
-        group_best_of_georgette.setClipToOutline(true);
+
+        saree_silk = (LinearLayout)findViewById(R.id.fabric_silk);
+        saree_artsilk = (LinearLayout)findViewById(R.id.fabric_art_silk);
+        saree_banarasi = (LinearLayout)findViewById(R.id.fabric_banarasi);
+        saree_bhagalpuri = (LinearLayout)findViewById(R.id.fabric_bhagalpuri);
+        saree_chiffon = (LinearLayout)findViewById(R.id.fabric_chiffon);
+        saree_cottonsilk = (LinearLayout)findViewById(R.id.fabric_cotton_silk);
+        saree_cotton = (LinearLayout)findViewById(R.id.fabric_cotton);
+        saree_kanjeevaram = (LinearLayout)findViewById(R.id.fabric_kanjeevaram);
+        saree_net = (LinearLayout)findViewById(R.id.fabric_net);
+        saree_japansatin = (LinearLayout)findViewById(R.id.fabric_japan_satin);
+        saree_georgtte = (LinearLayout)findViewById(R.id.fabric_georgette);
+        saree_sana = (LinearLayout)findViewById(R.id.fabric_sana);
+
+        amount_saree_silk = (TextView)findViewById(R.id.amount_saree_silk);
+        amount_saree_sana = (TextView)findViewById(R.id.amount_saree_sana);
+        amount_saree_georgtte = (TextView)findViewById(R.id.amount_saree_georgtte);
+        amount_saree_kanjeevaram = (TextView)findViewById(R.id.amount_saree_kanjeevaram);
+        amount_saree_artsilk = (TextView)findViewById(R.id.amount_saree_artsilk);
+        amount_saree_cottonsilk = (TextView)findViewById(R.id.amount_saree_cottonsilk);
+        amount_saree_chiffon = (TextView)findViewById(R.id.amount_saree_chiffon);
+        amount_saree_banarasi = (TextView)findViewById(R.id.amount_saree_banarasi);
+        amount_saree_japansatin = (TextView)findViewById(R.id.amount_saree_japansatin);
+        amount_saree_cotton = (TextView)findViewById(R.id.amount_saree_cotton);
+        amount_saree_net = (TextView)findViewById(R.id.amount_saree_net);
+        amount_saree_bhagalpuri = (TextView)findViewById(R.id.amount_saree_bhagalpuri);
+
+        style_best_of_georgette = (ImageView)findViewById(R.id.style_best_of_georgette);
+        style_new_design = (ImageView)findViewById(R.id.style_new_design);
+        style_new_design.setClipToOutline(true);
+        style_new_design.setOnClickListener(this);
+        style_best_of_georgette.setClipToOutline(true);
+        style_best_of_georgette.setOnClickListener(this);
+
+
+        intent = new Intent(MainActivity.this, product_view_all.class);
         shaandar_saree.setOnClickListener(this);
         khoobsurat_saree.setOnClickListener(this);
         dhamakedar_Saree.setOnClickListener(this);
+        Upload_product.setOnClickListener(this);
 
-        intent = new Intent(MainActivity.this, product_view_all.class);
+        saree_artsilk.setOnClickListener(this);
+        saree_silk.setOnClickListener(this);
+        saree_banarasi.setOnClickListener(this);
+        saree_bhagalpuri.setOnClickListener(this);
+        saree_chiffon.setOnClickListener(this);
+        saree_cottonsilk.setOnClickListener(this);
+        saree_cotton.setOnClickListener(this);
+        saree_kanjeevaram.setOnClickListener(this);
+        saree_net.setOnClickListener(this);
+        saree_japansatin.setOnClickListener(this);
+        saree_georgtte.setOnClickListener(this);
+        saree_sana.setOnClickListener(this);
 
-        Upload_product.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, upload_product.class);
-                startActivity(intent);
-            }
-        });
         myself = this;
 
         // Sets the Toolbar to act as the ActionBar for this Activity window.
@@ -199,8 +301,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Global.array_all_sarees.clear();
                 Global.array_shaandar_sarees.clear();
-                Global.array_BestSeller_sarees.clear();
-                Global.array_New_sarees.clear();
+                Global.array_Khoobsurat_sarees.clear();
+                Global.array_Dhamakedar_sarees.clear();
+                amount_BHAGALPURI = amount_ARTSILK = amount_SILK = amount_ARTSILK = amount_BANARASI = amount_CHIFFON
+                        = amount_KANJEEVARAM = amount_COTTON = amount_COTTONSILK = amount_NET = amount_SANA = amount_JAPANSATIN = 0;
 
                 if (dataSnapshot.exists()){
                     HashMap<String, Object> dataMap = (HashMap<String, Object>) dataSnapshot.getValue();
@@ -211,44 +315,112 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         try{
                             HashMap<String, Object> userData = (HashMap<String, Object>) data;
-                            String saree_Id = userData.get("Id").toString();
-                            String saree_Name = userData.get("Name").toString();
-                            String saree_Label = userData.get("Label").toString();
-                            String saree_Price = userData.get("Price").toString();
-                            String saree_Material = userData.get("Material").toString();
-                            String saree_Length = userData.get("Length").toString();
-                            String saree_Occations = userData.get("Occations").toString();
-                            String saree_Color = userData.get("Color").toString();
-                            String saree_Rating = userData.get("Rating").toString();
-                            String saree_Description = "";
+                            String saree_Id = userData.get(ID).toString();
+                            String saree_Name = userData.get(NAME).toString();
+                            String saree_Label = userData.get(LABEL).toString();
+                            String saree_Price = userData.get(PRICE).toString();
+                            String saree_Oldprice = userData.get(OLDPRICE).toString();
+                            String saree_Shipping = userData.get(SHIPPINGPRICE).toString();
+                            String saree_Oldshipping = userData.get(OLDSHIPPINGPRICE).toString();
+                            String saree_Fabric = userData.get(FABRIC).toString();
+                            switch (saree_Fabric){
+                                case SILK:
+                                    amount_SILK++;
+                                    break;
+                                case GEORGERRE:
+                                    amount_GEORGETTE++;
+                                    break;
+                                case SANA:
+                                    amount_SANA++;
+                                    break;
+                                case KANJEEVARAM:
+                                    amount_KANJEEVARAM++;
+                                    break;
+                                case ARTSILK:
+                                    amount_ARTSILK++;
+                                    break;
+                                case COTTONSILK:
+                                    amount_COTTONSILK++;
+                                    break;
+                                case CHIFFON:
+                                    amount_CHIFFON++;
+                                    break;
+                                case BANARASI:
+                                    amount_BANARASI++;
+                                    break;
+                                case JAPANSATIN:
+                                    amount_JAPANSATIN++;
+                                    break;
+                                case COTTON:
+                                    amount_COTTON++;
+                                    break;
+                                case NET:
+                                    amount_NET++;
+                                    break;
+                                case BHAGALPURI:
+                                    amount_BHAGALPURI++;
+                                    break;
+                            }
+                            String saree_Length = userData.get(LENGTH).toString();
+                            String saree_Occations = userData.get(OCCATION).toString();
+                            String saree_Color = userData.get(COLOR).toString();
+                            String saree_Rating = userData.get(RATING).toString();
+
+                            String saree_ExtraInfo = "";
                             try {
-                                saree_Description = userData.get("Description").toString();
+                                saree_ExtraInfo = userData.get(EXTRAINFO).toString();
                             }catch (Exception e){
                                 Log.e(TAG,e.toString());
                             }
 
-                            String saree_Style = userData.get("Style").toString();
-                            String base64photo = "";
+                            String saree_Style = userData.get(STYLE).toString();
+                            String base64photo_a = "";
                             try {
-                                base64photo = userData.get("Photo").toString();
+                                base64photo_a = userData.get(PHOTO_A).toString();
                             }
                             catch (Exception E){
                                 Log.e(TAG,E.toString());
                             }
-                            saree new_saree = new saree(saree_Id, saree_Name, saree_Label, saree_Price, saree_Material, saree_Length, saree_Occations, saree_Color, saree_Rating, saree_Description, saree_Style,base64photo, null, null, null ) ;
+                            String base64photo_b = "";
+                            try {
+                                base64photo_b = userData.get(PHOTO_B).toString();
+                            }
+                            catch (Exception E){
+                                Log.e(TAG,E.toString());
+                            }
+                            String base64photo_c = "";
+                            try {
+                                base64photo_c = userData.get(PHOTO_C).toString();
+                            }
+                            catch (Exception E){
+                                Log.e(TAG,E.toString());
+                            }
+                            saree new_saree = new saree(
+                                    saree_Id,
+                                    saree_Name,
+                                    saree_Label,
+                                    saree_Price,
+                                    saree_Oldprice,
+                                    saree_Shipping,
+                                    saree_Oldshipping,
+                                    saree_Length,
+                                    saree_Fabric,
+                                    saree_Color,
+                                    saree_Rating,
+                                    saree_ExtraInfo,
+                                    saree_Occations,
+                                    saree_Style,
+                                    base64photo_a,
+                                    base64photo_b,
+                                    base64photo_c);
                             array_all_sarees.add(new_saree);
-                            if (saree_Style.equals("shaandar"))
-                                Global.array_shaandar_sarees.add(new_saree);
-                            else if (saree_Style.equals("khoobsurat"))
-                                Global.array_BestSeller_sarees.add(new_saree);
-                            else if (saree_Style.equals("New"))
-                                Global.array_New_sarees.add(new_saree);
                         }catch (Exception cce){
                             Log.e(TAG, cce.toString());
                         }
 
                     }
                     Global.array_all_sarees = array_all_sarees;
+                    init_amount();
                     progressDialog.dismiss();
                 }
             }
@@ -262,6 +434,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
+    }
+
+    private void init_amount() {
+
+        amount_saree_silk.setText(String.valueOf(amount_SILK));
+        amount_saree_sana.setText(String.valueOf(amount_SANA));
+        amount_saree_georgtte.setText(String.valueOf(amount_GEORGETTE));
+        amount_saree_kanjeevaram.setText(String.valueOf(amount_KANJEEVARAM));
+        amount_saree_artsilk.setText(String.valueOf(amount_ARTSILK));
+        amount_saree_cottonsilk.setText(String.valueOf(amount_COTTONSILK));
+        amount_saree_chiffon.setText(String.valueOf(amount_CHIFFON));
+        amount_saree_banarasi.setText(String.valueOf(amount_BANARASI));
+        amount_saree_japansatin.setText(String.valueOf(amount_JAPANSATIN));
+        amount_saree_cotton.setText(String.valueOf(amount_COTTON));
+        amount_saree_net.setText(String.valueOf(amount_NET));
+        amount_saree_bhagalpuri.setText(String.valueOf(amount_BHAGALPURI));
     }
 
     @Override
@@ -312,23 +500,96 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.poster_1:
+            case R.id.btn_upload_product:
+                Intent upload_intent = new Intent(MainActivity.this, upload_product.class);
+                startActivity(upload_intent);
                 break;
-            case R.id.poster_2:
+            case R.id.style_best_of_georgette:
+                intent.removeExtra(FABRIC);
+                intent.putExtra(STYLE,"BEST GEORGETTE");
+                startActivity(intent);
+                break;
+            case R.id.style_new_design:
+                intent.removeExtra(FABRIC);
+                intent.putExtra(STYLE,"NEW DESIGN");
+                startActivity(intent);
                 break;
             case R.id.shaandar_sarees:
                 Image_area_a.setBackgroundResource(R.drawable.select_shaandar);
-                intent.putExtra("Style","shaandar");
+                intent.removeExtra(FABRIC);
+                intent.putExtra(STYLE,"SHAANDAR");
                 startActivity(intent);
                 break;
             case R.id.khoobsurat:
                 Image_area_a.setBackgroundResource(R.drawable.select_best_seller);
-                intent.putExtra("Style","khoobsurat");
+                intent.removeExtra(FABRIC);
+                intent.putExtra(STYLE,"KHOOBSURAT");
                 startActivity(intent);
                 break;
             case R.id.dhamakedar:
                 Image_area_a.setBackgroundResource(R.drawable.select_new);
-                intent.putExtra("Style","New");
+                intent.removeExtra(FABRIC);
+                intent.putExtra(STYLE,"DHAMAKEDAR");
+                startActivity(intent);
+                break;
+            case R.id.fabric_silk:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, SILK);
+                startActivity(intent);
+                break;
+            case R.id.fabric_georgette:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, GEORGERRE);
+                startActivity(intent);
+                break;
+            case R.id.fabric_sana:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, SANA);
+                startActivity(intent);
+                break;
+            case R.id.fabric_kanjeevaram:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, KANJEEVARAM);
+                startActivity(intent);
+                break;
+            case R.id.fabric_art_silk:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, ARTSILK);
+                startActivity(intent);
+                break;
+            case R.id.fabric_cotton_silk:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, COTTONSILK);
+                startActivity(intent);
+                break;
+            case R.id.fabric_chiffon:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, CHIFFON);
+                startActivity(intent);
+                break;
+            case R.id.fabric_banarasi:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, BANARASI);
+                startActivity(intent);
+                break;
+            case R.id.fabric_japan_satin:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, JAPANSATIN);
+                startActivity(intent);
+                break;
+            case R.id.fabric_cotton:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, COTTON);
+                startActivity(intent);
+                break;
+            case R.id.fabric_net:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, NET);
+                startActivity(intent);
+                break;
+            case R.id.fabric_bhagalpuri:
+                intent.removeExtra(STYLE);
+                intent.putExtra(FABRIC, BHAGALPURI);
                 startActivity(intent);
                 break;
 
