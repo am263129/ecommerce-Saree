@@ -188,7 +188,7 @@
                         android:id="@+id/user_address"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:inputType="textEmailAddress|phone"
+                        android:inputType="textPostalAddress"
                         android:textColor="@color/textcolor" />
 
                 </LinearLayout>
@@ -209,7 +209,6 @@
                         android:id="@+id/user_location"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:inputType="textEmailAddress|phone"
                         android:textColor="@color/textcolor" />
 
                 </LinearLayout>

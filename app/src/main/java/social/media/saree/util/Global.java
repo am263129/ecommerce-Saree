@@ -3,6 +3,7 @@ package social.media.saree.util;
 import java.util.ArrayList;
 
 import social.media.saree.Member.Member;
+import social.media.saree.order.cart_item;
 import social.media.saree.saree.saree;
 
 public class Global {
@@ -19,4 +20,6 @@ public class Global {
     public static ArrayList<saree> array_Dhamakedar_sarees = new ArrayList<saree>();
 
     public static saree selected_saree;
+    public static ArrayList<cart_item> user_carts = new ArrayList<cart_item>();
+    public static Integer cart_total_price = 0;
 }

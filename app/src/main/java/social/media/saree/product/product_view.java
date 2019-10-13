@@ -12,19 +12,26 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 
 import social.media.saree.R;
+import social.media.saree.order.cart_item;
 import social.media.saree.order.make_Order;
 import social.media.saree.saree.saree;
 import social.media.saree.util.Global;
 
-public class product_view extends AppCompatActivity {
+import static social.media.saree.util.Global.user_carts;
+
+public class product_view extends AppCompatActivity implements View.OnClickListener {
 
 
+    Integer amount = 0;
+    TextView product_amount;
+    saree selected_saree = Global.selected_saree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,26 +45,18 @@ public class product_view extends AppCompatActivity {
         TextView saree_material = (TextView)findViewById(R.id.detail_saree_material);
         TextView saree_description = (TextView)findViewById(R.id.detail_saree_description);
         ImageView saree_photo = (ImageView)findViewById(R.id.detail_saree_photo);
-
+        Button btn_minus = (Button)findViewById(R.id.btn_decrease_amount);
+        Button btn_plus = (Button)findViewById(R.id.btn_increase_amount);
+        product_amount = (TextView)findViewById(R.id.product_amount);
         Button add_to_cart = (Button)findViewById(R.id.btn_add_to_cart);
         final Button make_order = (Button)findViewById(R.id.btn_make_order);
+        btn_minus.setOnClickListener(this);
+        btn_plus.setOnClickListener(this);
+        add_to_cart.setOnClickListener(this);
+        make_order.setOnClickListener(this);
 
-        add_to_cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        make_order.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(product_view.this, make_Order.class);
-                startActivity(intent);
-            }
-        });
 
         Intent intent = getIntent();
-        saree selected_saree = Global.selected_saree;
 
 
         saree_name.setText(selected_saree.getSaree_Name());
@@ -72,5 +71,35 @@ public class product_view extends AppCompatActivity {
         saree_photo.setImageBitmap(bitmap);
 
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_decrease_amount:
+                amount --;
+                if (amount<0)
+                    amount = 0;
+                product_amount.setText(String.valueOf(amount));
+                break;
+            case R.id.btn_increase_amount:
+                amount ++;
+                product_amount.setText(String.valueOf(amount));
+                break;
+            case R.id.btn_add_to_cart:
+                String cart_price = String.valueOf(Integer.parseInt(selected_saree.getSaree_Price()) * amount);
+                cart_item new_cart = new cart_item(selected_saree.getSaree_Id(), selected_saree.saree_Name, String.valueOf(amount), cart_price);
+                user_carts.add(new_cart);
+                Toast.makeText(product_view.this, "Added to cart", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.btn_make_order:
+                if(Global.current_user_name.equals(""))
+                    Toast.makeText(product_view.this,"To make order, you have to make your account.", Toast.LENGTH_LONG).show();
+                else {
+                    Intent intent = new Intent(product_view.this, make_Order.class);
+                    startActivity(intent);
+                }
+                break;
+        }
     }
 }

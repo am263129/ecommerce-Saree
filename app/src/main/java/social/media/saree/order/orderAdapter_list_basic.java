@@ -49,10 +49,11 @@ public class orderAdapter_list_basic extends ArrayAdapter <cart_item> implements
         v = inflater.inflate(R.layout.item_order_list_basic, null);
         TextView item_name = (TextView) v.findViewById(R.id.item_name);
         TextView item_amount = (TextView)v.findViewById(R.id.item_amount);
+        TextView item_price = (TextView)v.findViewById(R.id.item_price);
 
         item_name.setText(array_cart_item.get(position).getProduct_name());
         item_amount.setText(array_cart_item.get(position).getProduct_amount());
-
+        item_price.setText(String.valueOf(Integer.parseInt(array_cart_item.get(position).getProduct_price())));
         return v;
     }
 
