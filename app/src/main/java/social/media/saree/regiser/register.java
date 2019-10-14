@@ -111,6 +111,12 @@ public class register extends AppCompatActivity {
                 official_num_edt.setText(me.getOfficial_phone());
                 personal_num_edt.setText(me.getPersonal_phone());
                 designation_edt.setText(me.getDesignation());
+                user_address.setText(me.getAddress());
+                user_location.setText(me.getLocation());
+                if (me.getGender().equals("Male"))
+                    male.setChecked(true);
+                else
+                    female.setChecked(true);
                 String base64photo = me.getPhoto();
                 String imageDataBytes = base64photo.substring(base64photo.indexOf(",") + 1);
                 InputStream stream = new ByteArrayInputStream(Base64.decode(imageDataBytes.getBytes(), Base64.DEFAULT));
@@ -126,7 +132,7 @@ public class register extends AppCompatActivity {
         register_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                profile_setting(false);
+                profile_setting(true);
             }
         });
         update_btn.setOnClickListener(new View.OnClickListener() {
@@ -242,7 +248,7 @@ public class register extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
                 Log.d(TAG, "Value is:" + value);
-                if (flag);
+                if (flag)
                     singUp();
             }
 

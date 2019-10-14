@@ -16,10 +16,9 @@ import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
 
 import social.media.saree.R;
-import social.media.saree.order.cart_item;
+import social.media.saree.cart.cart_item;
 import social.media.saree.order.make_Order;
 import social.media.saree.saree.saree;
 import social.media.saree.util.Global;
@@ -89,8 +88,23 @@ public class product_view extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_add_to_cart:
                 String cart_price = String.valueOf(Integer.parseInt(selected_saree.getSaree_Price()) * amount);
                 cart_item new_cart = new cart_item(selected_saree.getSaree_Id(), selected_saree.saree_Name, String.valueOf(amount), cart_price);
-                user_carts.add(new_cart);
+                Integer new_amount = 0;
+                cart_item replaced_cart;
+                Integer new_price = 0;
+                boolean update = false;
+                for(int i = 0; i < user_carts.size(); i ++){
+                    if(user_carts.get(i).getProduct_id() == selected_saree.getSaree_Id()) {
+                        new_amount = Integer.parseInt(user_carts.get(i).getProduct_amount()) + amount;
+                        new_price = (Integer.parseInt(selected_saree.getSaree_Price()) * new_amount);
+                        replaced_cart = new cart_item(user_carts.get(i).getProduct_id(), user_carts.get(i).getProduct_name(), String.valueOf(new_amount),String.valueOf(new_price) );
+                        user_carts.set(i, replaced_cart);
+                        update = true;
+                    }
+                }
+                if (!update)
+                    user_carts.add(new_cart);
                 Toast.makeText(product_view.this, "Added to cart", Toast.LENGTH_LONG).show();
+                finish();
                 break;
             case R.id.btn_make_order:
                 if(Global.current_user_name.equals(""))

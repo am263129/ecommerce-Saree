@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".order.make_Order"></activity>
+        <activity android:name=".order.Order_Manager"></activity>
+        <activity android:name=".cart.Cart_view" />
+        <activity android:name=".order.make_Order" />
         <activity android:name=".QR.QRCreator" />
         <activity android:name=".product.product_view_all" />
         <activity android:name=".product.product_view" />

@@ -28,8 +28,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import social.media.saree.Member.Member;
-import social.media.saree.QR.QRCreator;
 import social.media.saree.login.LoginActivity;
+import social.media.saree.cart.Cart_view;
+import social.media.saree.order.Order_Manager;
+import social.media.saree.cart.cart_item;
+import social.media.saree.order.order;
 import social.media.saree.product.product_view_all;
 import social.media.saree.product.upload_product;
 import social.media.saree.regiser.register;
@@ -54,6 +57,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String PHOTO_A = "Photo_a";
     String PHOTO_B = "Photo_b";
     String PHOTO_C = "Photo_c";
+
+    String CLIENT_NAME = "Client_Name";
+    String CLIENT_EMAIL = "Client_Email";
+    String CLIENT_ADDRESS = "Client_Address";
+    String CLIENT_LOCATION = "Client_Location";
+    String RECEIVER_NAME = "Receiver_Name";
+    String RECEIVER_EMAIL = "Receiver_Email";
+    String RECEIVER_ADDRESS = "Receiver_Address";
+    String RECEIVER_LOCATION = "Receiver_Location";
+    String STATUS = "Status";
+    String TOTAL_PRICE = "Total_Rrice";
+    String SHIPPING_PRICE = "Shipping_Price";
+    String CREATED_DATE = "Created_Date";
+    String ORDER_ID = "Order_Id";
+    String SERVICE_EAMIL = "Service_Email";
+    String PRODUCT_NAME = "Product_Name";
+    String RPODUCT_AMOUNT = "Product_Amount";
+    String PRODUCT_PRICE = "Product_Price";
+
 
     final String SILK = "SILK";
     final String GEORGERRE = "GEORGERRE";
@@ -103,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String TAG = "MainActivity";
     private ArrayList<Member> array_all_members = new ArrayList<Member>();
     private ArrayList<saree> array_all_sarees = new ArrayList<saree>();
+    private ArrayList<order> array_order = new ArrayList<order>();
     Intent intent;
 
 
@@ -163,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         khoobsurat_saree.setOnClickListener(this);
         dhamakedar_Saree.setOnClickListener(this);
         Upload_product.setOnClickListener(this);
+        Order_manager.setOnClickListener(this);
 
         saree_artsilk.setOnClickListener(this);
         saree_silk.setOnClickListener(this);
@@ -225,27 +249,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             String birthday = null;
                             String address = null;
                             String location = null;
+
                             try {
                                 base64photo = userData.get("Photo").toString();
                             }
+
                             catch (Exception E){
                                 Log.e(TAG,E.toString());
                             }
+
                             try {
                                 birthday = userData.get("Birthday").toString();
                             }
+
                             catch (Exception E){
                                 Log.e(TAG,E.toString());
                             }
+
                             try {
                                 address = userData.get("Address").toString();
                             }
+
                             catch (Exception E){
                                 Log.e(TAG,E.toString());
                             }
+
                             try {
                                 location = userData.get("Location").toString();
                             }
+
                             catch (Exception e)
                             {
                                 Log.e(TAG, "user profile is not complited");
@@ -293,6 +325,102 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 progressDialog.dismiss();
             }
         });
+
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Order/Saree/");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                String value = dataSnapshot.getValue(String.class);
+//                Log.d(TAG, "Value is:" + value);
+                Global.array_all_order.clear();
+                if (dataSnapshot.exists()){
+                    HashMap<String, Object> dataMap = (HashMap<String, Object>) dataSnapshot.getValue();
+//                    Member Member = dataSnapshot.getValue(Member.class);
+//                    Log.d(TAG, "User name: " + Member.getName() + ", email " + Member.getEmail());
+                    for (String key : dataMap.keySet()){
+
+                        Object data = dataMap.get(key);
+
+                        try{
+                            HashMap<String, Object> userData = (HashMap<String, Object>) data;
+                            String client_name = userData.get(CLIENT_NAME).toString();
+                            String client_email = userData.get(CLIENT_EMAIL).toString();
+                            String client_address = userData.get(CLIENT_ADDRESS).toString();
+                            String client_location = userData.get(CLIENT_LOCATION).toString();
+                            String receiver_name = userData.get(RECEIVER_NAME).toString();
+                            String receiver_email = userData.get(RECEIVER_EMAIL).toString();
+                            String receiver_address = userData.get(RECEIVER_ADDRESS).toString();
+                            String receiver_location = userData.get(RECEIVER_LOCATION).toString();
+                            String order_status = userData.get(STATUS).toString();
+                            String order_id = userData.get(ORDER_ID).toString();
+                            String created_date = userData.get(CREATED_DATE).toString();
+                            String total_price = userData.get(TOTAL_PRICE).toString();
+                            String shipping_price = "";
+                            try {
+                                shipping_price = userData.get(SHIPPING_PRICE).toString();
+                            }
+                            catch (Exception e){
+
+                            }
+                            String service_email = userData.get(SERVICE_EAMIL).toString();
+
+                            ArrayList<cart_item> carts = new ArrayList<>();
+                            HashMap<String, Object> cart = (HashMap<String, Object>) userData.get("Cart");
+                            for (String sub_subkey : cart.keySet()) {
+                                Object sub_subdata = cart.get(sub_subkey);
+                                cart_item member = null;
+                                try {
+                                    HashMap<String, Object> hired_Data = (HashMap<String, Object>) sub_subdata;
+                                    String product_id = hired_Data.get("Product_Id").toString();
+                                    String product_name = hired_Data.get("Product_Name").toString();
+                                    String prodcut_price = hired_Data.get("Product_Price").toString();
+                                    String product_amount = hired_Data.get("Product_Amount").toString();
+                                    member = new cart_item(product_id, product_name, product_amount, prodcut_price);
+                                    carts.add(member);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            }
+                            array_order.add(new order(
+                                    client_name,
+                                    client_address,
+                                    client_email,
+                                    client_location,
+                                    receiver_name,
+                                    receiver_address,
+                                    receiver_email,
+                                    receiver_location,
+                                    order_status,
+                                    created_date,
+                                    order_id,
+                                    total_price,
+                                    shipping_price,
+                                    service_email,
+                                    carts
+
+                            ));
+                        }catch (Exception cce){
+                            Log.e(TAG, cce.toString());
+                        }
+
+                    }
+                    Global.array_all_order = array_order;
+                    progressDialog.dismiss();
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w(TAG,"Failed to rad value ", databaseError.toException());
+                progressDialog.dismiss();
+            }
+        });
+
 
         myRef = database.getReference("Product/Saree");
 
@@ -465,8 +593,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (item.getItemId()) {
 
             case R.id.miCart:
-                Intent qrintent = new Intent(MainActivity.this, QRCreator.class);
-                startActivity(qrintent);
+//                if (Global.is_admin) {
+//                    Intent qrintent = new Intent(MainActivity.this, QRCreator.class);
+//                    startActivity(qrintent);
+//                }
+//                else {
+                    Intent cartIntent = new Intent(MainActivity.this, Cart_view.class);
+                    startActivity(cartIntent);
+//                }
 
                 return true;
 
@@ -503,6 +637,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_upload_product:
                 Intent upload_intent = new Intent(MainActivity.this, upload_product.class);
                 startActivity(upload_intent);
+                break;
+            case R.id.order_manager:
+                Intent order_manager = new Intent(MainActivity.this, Order_Manager.class);
+                startActivity(order_manager);
                 break;
             case R.id.style_best_of_georgette:
                 intent.removeExtra(FABRIC);

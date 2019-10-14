@@ -115,11 +115,11 @@
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
-                <ImageView
+                <Button
                     android:id="@+id/btn_remove"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/ic_delete" />
+                    android:background="@android:drawable/ic_delete" />
             </LinearLayout>
 
         </LinearLayout>

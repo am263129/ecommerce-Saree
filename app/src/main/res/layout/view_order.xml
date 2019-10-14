@@ -25,13 +25,59 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
+                <LinearLayout
+                    android:id="@+id/client"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_complete_order"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/ico_completed" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Complete Order" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/manager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <Button
+                        android:id="@+id/btn_export"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/ico_completed" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Export CSV" />
+
+                </LinearLayout>
+
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/aguafina_script"
                     android:gravity="center_horizontal"
-                    android:text="Order"
+                    android:text="Order Preview"
                     android:textColor="@color/acrionbar_primary"
                     android:textSize="30sp"
                     android:textStyle="bold" />
@@ -127,28 +173,28 @@
                             android:padding="10dp">
 
                             <TextView
-                                android:id="@+id/order_to_name"
+                                android:id="@+id/receiver_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Naomi Igarashi" />
+                                android:text="Faizan Ansari" />
 
                             <TextView
-                                android:id="@+id/order_to_email"
+                                android:id="@+id/receiver_email"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="poseidon@gmail.com" />
+                                android:text="faizan@gmail.com" />
 
                             <TextView
-                                android:id="@+id/order_to_address"
+                                android:id="@+id/receiver_address"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Isabel street de curha 34 th " />
 
                             <TextView
-                                android:id="@+id/order_to_location"
+                                android:id="@+id/receiver_location"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Russia" />
+                                android:text="India" />
 
 
                         </LinearLayout>
@@ -225,7 +271,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/order_for"
+                        android:id="@+id/support_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
