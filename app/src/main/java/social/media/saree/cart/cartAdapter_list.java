@@ -1,9 +1,6 @@
-package social.media.saree.order;
+package social.media.saree.cart;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,21 +8,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Filterable;
-import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import social.media.interfaces.ItemClickListener;
 import social.media.saree.R;
-import social.media.saree.saree.saree;
 import social.media.saree.util.Global;
 
 
-public class orderAdapter_list extends ArrayAdapter <cart_item> implements Filterable {
+public class cartAdapter_list extends ArrayAdapter <social.media.saree.cart.cart_item> implements Filterable {
 
 
     ArrayList<cart_item> array_order = new ArrayList<cart_item>();
@@ -38,7 +30,7 @@ public class orderAdapter_list extends ArrayAdapter <cart_item> implements Filte
 
     cart_item cart_item;
     CheckBox hire;
-    public orderAdapter_list(Context context, int textViewResourceId, ArrayList<cart_item> objects) {
+    public cartAdapter_list(Context context, int textViewResourceId, ArrayList<cart_item> objects) {
         super(context, textViewResourceId, objects);
         array_order = objects;
     }
@@ -53,7 +45,7 @@ public class orderAdapter_list extends ArrayAdapter <cart_item> implements Filte
 
         View v = convertView;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.item_order_list, null);
+        v = inflater.inflate(R.layout.item_cart_list, null);
 
         TextView product_name = (TextView)v.findViewById(R.id.item_order_name);
         TextView product_amount = (TextView)v.findViewById(R.id.item_order_amount);

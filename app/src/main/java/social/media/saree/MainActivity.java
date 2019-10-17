@@ -175,9 +175,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         style_best_of_georgette = (ImageView)findViewById(R.id.style_best_of_georgette);
         style_new_design = (ImageView)findViewById(R.id.style_new_design);
-        style_new_design.setClipToOutline(true);
+//        style_new_design.setClipToOutline(true);
         style_new_design.setOnClickListener(this);
-        style_best_of_georgette.setClipToOutline(true);
+//        style_best_of_georgette.setClipToOutline(true);
         style_best_of_georgette.setOnClickListener(this);
 
 
@@ -373,7 +373,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 cart_item member = null;
                                 try {
                                     HashMap<String, Object> hired_Data = (HashMap<String, Object>) sub_subdata;
-                                    String product_id = hired_Data.get("Product_Id").toString();
+                                    String product_id = hired_Data.get("Product_ID").toString();
                                     String product_name = hired_Data.get("Product_Name").toString();
                                     String prodcut_price = hired_Data.get("Product_Price").toString();
                                     String product_amount = hired_Data.get("Product_Amount").toString();

@@ -41,4 +41,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0-rc01'
 
     implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
+    implementation files('libs\\opencsv-4.6.jar')
 }

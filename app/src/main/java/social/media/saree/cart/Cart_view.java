@@ -1,4 +1,4 @@
-package social.media.saree.order;
+package social.media.saree.cart;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,12 +10,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import social.media.saree.R;
+import social.media.saree.order.make_Order;
 import social.media.saree.util.Global;
 
 public class Cart_view extends AppCompatActivity {
 
     static ListView cart_list;
-    static orderAdapter_list adapter;
+    static cartAdapter_list adapter;
     private static Cart_view self;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class Cart_view extends AppCompatActivity {
         set_list();
     }
     public static  void set_list(){
-        adapter = new orderAdapter_list(Cart_view.getInstance(),R.layout.item_order_list, Global.user_carts);
+        adapter = new cartAdapter_list(Cart_view.getInstance(),R.layout.item_cart_list, Global.user_carts);
         cart_list.setAdapter(adapter);
     }
     public static Cart_view getInstance(){
